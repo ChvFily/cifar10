@@ -92,6 +92,7 @@ del network  ## 销毁网路模型
 print('saved to ckpt/weights.ckpt')
 
 
+
 ## 提取模型
 network = MyNetWork()
 network.compile(optimizer=optimizers.Adam(learning_rate=1e-3),
