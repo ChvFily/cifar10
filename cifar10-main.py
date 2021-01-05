@@ -43,12 +43,13 @@ class MyDense(layers.Layer):
 class MyNetWork(keras.Model):
     def __init__(self):
         super(MyNetWork,self).__init__()
-        self.fc1 = MyDense(32*32*3,512)
-        self.fc2 = MyDense(512,256)
-        self.fc3 = MyDense(256,128)
-        self.fc4 = MyDense(128,64)
-        self.fc5 = MyDense(64,32)
-        self.fc6 = MyDense(32,10)
+        self.fc1 = MyDense(32*32*3,1024)
+        self.fc2 = MyDense(1024,512)
+        self.fc3 = MyDense(512,256)
+        self.fc4 = MyDense(256,128)
+        self.fc5 = MyDense(128,64)
+        self.fc6 = MyDense(64,32)
+        self.fc7 = MyDense(32,10)
 
     def call(self,inputs,training = None):
         """
@@ -73,6 +74,9 @@ class MyNetWork(keras.Model):
         x = tf.nn.relu(x)
 
         x = self.fc6(x)
+        x = tf.nn.relu(x)
+
+        x = self.fc7(x)
 
         return x
 
